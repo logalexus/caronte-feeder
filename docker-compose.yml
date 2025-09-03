@@ -1,18 +1,18 @@
 services:
   caronte-feeder:
     build: .
-    image: caronte-feeder:latest
     container_name: caronte-feeder
     network_mode: host
     cap_add:
       - NET_RAW
       - NET_ADMIN
     restart: unless-stopped
-    command: ["--iface", "game", 
-              "--outdir", "/pcaps", 
-              "--caronte", "http://localhost:3333/api/pcap/upload", 
-              "-U", "admin", 
-              "-P", "admin", 
-              "--rotate", "3", 
-              "--remove-after"
-              ]
+    command: [
+      "--iface", "game", 
+      "--outdir", "/pcaps", 
+      "--caronte", "http://localhost:3333/api/pcap/upload", 
+      "-U", "admin", 
+      "-P", "admin", 
+      "--rotate", "3", 
+      "--remove-after"
+      ]
